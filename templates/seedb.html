@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+ <script type="text/javascript" src="{{ url_for('static', filename='jquery.js') }}"></script>
+    <div>
+    <center>
+        {% for depense in depenses %}
+           <p> Montant : {{depense.amount}}.- - Date : {{depense.date}} - Catégorie : {{depense.categorie}}</p>
+        {% endfor %}
+    </div>
+
+    <a href="/"><button href="/">Nouvel dépense</button></a>
+
+</head>
+
+<SCRIPT language="JavaScript">
+
+</SCRIPT>
+
+
+</html>
+
+

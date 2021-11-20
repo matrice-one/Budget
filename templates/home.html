@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+
+<title>Nouvel dépense</title>
+
+<head>
+ <script type="text/javascript" src="{{ url_for('static', filename='jquery.js') }}"></script>
+    <div>
+    <center>
+    <p style="font-size:2em">Tu As Besoin D'un Budget, l'ami</p>
+        <input type="text" id="categorie" placeholder="Type"></input>
+        <br>
+        <input type="text" id="montant" placeholder="Montant"></input>
+        <br>
+        <input type="text" id="date" placeholder="Date"></input>
+        <br>
+        <br>
+        <button onClick="hello()">Send</button>
+        <br>
+        <br>
+        <a href="/seedb"><button href="/seedb">See DB</button></a></br>
+        </center>
+    </div>
+
+
+</head>
+
+<SCRIPT language="JavaScript">
+
+
+function hello() {
+    var categorie = $("#categorie").val();
+    var montant = $("#montant").val();
+    var date = $("#date").val();
+
+    data = {'categorie' : categorie, 'montant' : montant, 'date' : date};
+    console.log(data)
+
+    fetch('/postdata', {
+        method: "POST",
+        credentials: "include",
+        xhrFields: { withCredentials: true },
+        body: JSON.stringify(data),
+        cache: "no-cache",
+        headers: new Headers({
+            "content-type": "application/json"
+        })
+    })
+}
+
+</SCRIPT>
+
+
+</html>
+
+
