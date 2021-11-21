@@ -1,23 +1,48 @@
 <!DOCTYPE html>
 <html>
 
+ <script type="text/javascript" src="{{ url_for('static', filename='jquery.js') }}"></script>
+
 <head>
  <script type="text/javascript" src="{{ url_for('static', filename='jquery.js') }}"></script>
     <div>
+    <button ></button>
     <center>
-        {% for depense in depenses %}
-           <p> Montant : {{depense.amount}}.- - Date : {{depense.date}} - Catégorie : {{depense.categorie}}</p>
+        <table>
+            <tr>
+                <th>Catégorie</th>
+                <th>Montant</th>
+                <th>Date</th>
+            </tr>
+        {% for depense in depenses %}             
+            <tr>
+                <td>{{depense.categorie}}</td>
+                <td>{{depense.amount}}</td>
+                <td>{{depense.date}}</td>
+                <td><input type="checkbox" classe="delete" id="delete1"></td>
+            </tr>
         {% endfor %}
+        </table> 
+    </center>
     </div>
 
-    <a href="/"><button href="/">Nouvel dépense</button></a>
+    <a href="/"><button>Nouvel dépense</button></a>
+    <button disabled="true">Delete</button>
 
 </head>
 
 <SCRIPT language="JavaScript">
+    function mfonction() {
+        alert("Coucou");
+    }
+    $(".detelete").change(function() {
+        alert("Changé !");
+        // do stuff here. It will fire on any checkbox change
 
+}); 
 </SCRIPT>
 
+<link rel="stylesheet" href="{{ url_for('static', filename='styling.css') }}" />
 
 </html>
 
