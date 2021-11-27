@@ -11,7 +11,7 @@ from flask import request
 app = Flask(__name__)
 
 # Connect to a database
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///neigex.db'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///more.db'
 db = SQLAlchemy(app)
 
 
@@ -41,6 +41,32 @@ def hello():
     return render_template('home.html')
 
 #  Time to make requests
+
+
+@app.route("/postdata", methods=['POST'])
+def postdata():
+    valeur = request.json
+    newdep = User(valeur['user_name'],
+                  valeur['account_money'], valeur['amount_piggy_bank'])
+    db.session.add(newdep)
+    db.session.commit()
+    return make_response("OK")
+
+# And to show what will be displayed after?
+
+
+@app.route("/seedb")
+def seedb():
+    depenses = User.query.all()
+    deps = []
+    for depense in depenses:
+        print("Amount = " + str(User.amount) + " categorie = " +
+              str(User.categorie) + " Date = " + str(User.date))
+        dep = {"amount": User.amount,
+               "categorie": User.categorie, "date": User.date}
+        deps.append(dep)
+    print(deps)
+    return render_template("seedb.html", User=deps)
 
 
 # on running python main.py, run the flask app
