@@ -41,6 +41,8 @@ def hello():
 
 #  Time to make requests
 
+# Here you're saying what happens to the data you assigned to the url /postdata in home.html
+
 
 @app.route("/postdata", methods=['POST'])
 def postdata():
@@ -55,6 +57,7 @@ def postdata():
 
 @app.route("/seedb")
 def seedb():
+    # SQL Query to get all data. as df..? tuple?
     depenses = Depense.query.all()
     deps = []
     for depense in depenses:

@@ -36,6 +36,7 @@ function hello() {
     data = {'categorie' : categorie, 'montant' : montant, 'date' : date};
     console.log(data)
 
+    // So you just choose a url name here for where to post your data
     fetch('/postdata', {
         method: "POST",
         credentials: "include",
