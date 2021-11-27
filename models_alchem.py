@@ -1,17 +1,5 @@
-from flask import Flask
-from flask.templating import render_template
-from flask_sqlalchemy import SQLAlchemy
-app = Flask(__name__)
 
-
-@app.route('/')
-def index():
-    return '<h1>Hello ma chère!</h1>'
-
-
-# Connect to a database
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///essai.db'
-db = SQLAlchemy(app)
+from app2 import db
 
 
 class User(db.Model):
