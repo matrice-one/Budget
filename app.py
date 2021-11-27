@@ -11,7 +11,7 @@ from flask import request
 app = Flask(__name__)
 
 # Connect to a database
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///final.db'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///super_final.db'
 db = SQLAlchemy(app)
 
 
