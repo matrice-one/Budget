@@ -6,17 +6,24 @@ from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy.exc import SQLAlchemyError
 from flask import request
 
+
+# Creae an app instance
 app = Flask(__name__)
+
+# Connect to a database
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///essai.db'
 db = SQLAlchemy(app)
 
 
+# Creating & maintain the database
 class Depense(db.Model):
+    # Defines the column of the db
     id = db.Column(db.Integer, primary_key=True, )
     amount = db.Column(db.Integer, nullable=False)
     categorie = db.Column(db.String(50), nullable=False)
     date = db.Column(db.String(50), nullable=False)
 
+    #  ?
     def __init__(self, amount=None, categorie=None, date=None):
         self.amount = amount
         self.categorie = categorie
@@ -25,10 +32,17 @@ class Depense(db.Model):
     def __repr__(self):
         return '<Depense %r>' % self.id
 
+
+# What happens at the end point
 @app.route('/')
 def hello():
     print("Nice try")
     return render_template('home.html')
+
+#  Time to make requests
+
+# Here you're saying what happens to the data you assigned to the url /postdata in home.html
+
 
 @app.route("/postdata", methods=['POST'])
 def postdata():
@@ -38,8 +52,12 @@ def postdata():
     db.session.commit()
     return make_response("OK", 200)
 
+# And to show what will be displayed after?
+
+
 @app.route("/seedb")
 def seedb():
+    # SQL Query to get all data. as df..? tuple?
     depenses = Depense.query.all()
     deps = []
     for depense in depenses:
@@ -67,4 +85,5 @@ def truc():
 
 
 if __name__ == '__main__':
+    # Debug mode as long as we are in production mode.
     app.run(debug=True)
