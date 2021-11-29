@@ -8,14 +8,22 @@
     <div>
     <center>
     <p style="font-size:2em">Tu As Besoin D'un Budget, l'ami</p>
-        <input type="text" id="categorie" placeholder="Type"></input>
-        <br>
-        <input type="text" id="montant" placeholder="Montant"></input>
-        <br>
-        <input type="text" id="date" placeholder="Date"></input>
-        <br>
-        <br>
-        <button onClick="hello()">Send</button>
+        <!-- <input type="text" id="categorie" placeholder="Type"></input> -->
+        <form action="/truc" method="POST" data-type="text" id="login-form">
+            <select name="categorie" id="categorie" class="categorie">
+                <option value="nourriture">Nourriture</option>
+                <option value="equipement">Equipement</option>
+                <option value="Habit">Habit</option>
+            </select>
+            <br>
+            <input type="text" id="montant" placeholder="Montant"></input>
+            <br>
+            <input type="text" id="date" placeholder="Date"></input>
+            <br>
+            <br>
+            <button type="submit" value="Submit">Submit</button>
+            <!-- <button onClick="hello()">Send</button> -->
+        </form>
         <br>
         <br>
         <a href="/seedb"><button href="/seedb">See DB</button></a></br>
@@ -29,7 +37,8 @@
 
 
 function hello() {
-    var categorie = $("#categorie").val();
+    var categorie = $(".categorie").val();
+    console.log(categorie);
     var montant = $("#montant").val();
     var date = $("#date").val();
 

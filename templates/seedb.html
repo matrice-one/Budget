@@ -2,13 +2,58 @@
 <html>
 
  <script type="text/javascript" src="{{ url_for('static', filename='jquery.js') }}"></script>
+    <SCRIPT language="JavaScript">
+
+        $(document).on("change", ".delete", function () {
+            $(".delete").each(function () {
+                if($(this).is(":checked")){
+                    $("#deletebn").prop("disabled", false);
+                    return false;
+                }
+                $("#deletebn").prop("disabled", true);
+            });
+                
+        });
+
+        function todelete() {
+            var target = [];
+            $(".delete").each(function () {
+                if ($(this).is(":checked")) {
+                    target.push($(this).attr('id').substring(7));
+                }
+            });
+
+            data = {"todelete" : target}
+            fetch('/delete', {
+                method: "POST",
+                credentials: "include",
+                xhrFields: { withCredentials: true },
+                body: JSON.stringify(data),
+                cache: "no-cache",
+                headers: new Headers({
+                    "content-type": "application/json"
+                })
+            })
+            .then(function (response) {
+                if (response['status'] !== 200){
+                    alert("Problem to delete the values");
+                }
+                else {
+                    console.log("Entry deleted");
+                }
+            })
+            }
+    </SCRIPT>
 
 <head>
  <script type="text/javascript" src="{{ url_for('static', filename='jquery.js') }}"></script>
     <div>
-    <button ></button>
+
+        <!-- HTML !-->
+        
+
     <center>
-        <table>
+        <table class="content">
             <tr>
                 <th>Catégorie</th>
                 <th>Montant</th>
@@ -19,28 +64,21 @@
                 <td>{{depense.categorie}}</td>
                 <td>{{depense.amount}}</td>
                 <td>{{depense.date}}</td>
-                <td><input type="checkbox" classe="delete" id="delete1"></td>
+                <td><input type="checkbox" class="delete" id="delbox_{{depense.id}}"></td>
             </tr>
         {% endfor %}
         </table> 
     </center>
     </div>
 
-    <a href="/"><button>Nouvel dépense</button></a>
-    <button disabled="true">Delete</button>
+    <center>
+        <a href="/"><button class="button1">Nouvel dépense</button></a>
+        <button class="button1" onClick="todelete()" id="deletebn" disabled="true">Delete</button>
+    </center>
 
 </head>
 
-<SCRIPT language="JavaScript">
-    function mfonction() {
-        alert("Coucou");
-    }
-    $(".detelete").change(function() {
-        alert("Changé !");
-        // do stuff here. It will fire on any checkbox change
 
-}); 
-</SCRIPT>
 
 <link rel="stylesheet" href="{{ url_for('static', filename='styling.css') }}" />
 
