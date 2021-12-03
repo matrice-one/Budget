@@ -7,7 +7,7 @@ from sqlalchemy.exc import SQLAlchemyError
 from flask import request
 from flask import flash, Blueprint
 from flask import current_app as app
-from .classes import db, User, Depense
+from .classes import db, User, Transaction
 
 
 # Partie lié au budget
