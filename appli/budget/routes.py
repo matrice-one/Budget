@@ -71,3 +71,8 @@ def truc():
     db.session.add(newdep)
     db.session.commit()
     return redirect(url_for('budget_bp.seedb'))
+
+
+@budget_bp.route("/budget")
+def budget():
+    return render_template("budget.html")
