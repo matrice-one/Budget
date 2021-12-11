@@ -22,6 +22,7 @@ from appli.budget.classes import db, User
 # la page ou non
 
 
+# blueprint to indicate the init file that part of the app is here
 login_bp = Blueprint('login_bp', __name__,
                      template_folder='templates',
                      static_folder='static',
@@ -48,6 +49,8 @@ def add_db(element, kind):
 
 # Fonction à part pour remplir la DB avec des Users
 # (Sera sûrement modifiée à l'avenir)
+
+
 def fill_db(name, email=None, password=None):
     if not email:
         email = name+"@etu.unige.ch"
@@ -103,8 +106,7 @@ def login_post():
     # r = requests.post('/login', auth=(email, password))
     # user.token = r.json()['token']
     db.session.commit()
-    return redirect(url_for('budget_bp.seedb'))
-
+    return redirect(url_for('budget_bp.budget'))
 
 
 # Pour créer un compte

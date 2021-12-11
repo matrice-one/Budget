@@ -9,13 +9,17 @@ from appli import db
 class User(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(50), nullable=False)
+    password = db.Column(db.String(50), nullable=False)
+    email = db.Column(db.String(50), nullable=False)
     money = db.Column(db.Integer)
     piggy_bank = db.Column(db.Integer)
     debt = db.Column(db.Integer)
 
-    def __init__(self, name=None, money=None,
+    def __init__(self, email, password, name=None, money=0,
                  piggy_bank=None, debt=None):
         self.name = name
+        self.password = password
+        self.email = email
         self.money = money
         self.piggy_bank = piggy_bank
         self.debt = debt
@@ -44,7 +48,7 @@ class Transaction(db.Model):
     #                                nullable=False)
     date = db.Column(db.String(50))
     category = db.Column(db.String(50))
-    
+
     def __init__(self, amount, date, comment=None):
         self.amount = amount
         self.date = date
@@ -52,4 +56,3 @@ class Transaction(db.Model):
 
     def __repr__(self):
         return '<Transaction %r>' % self.id
-
