@@ -29,10 +29,76 @@
         <div class="content">
             <header class=headercont> This is the header for the month</header>
             <section class="categories">
-                This will have the table
+                <center>
+                    <table class="content">
+                        <tr>
+                            <th>Catégorie</th>
+                            <th>Montant</th>
+                            <th>Date</th>
+                        </tr>
+                        {% for depense in depenses %}
+                        <tr>
+                            <td>{{depense.categorie}}</td>
+                            <td>{{depense.amount}}</td>
+                            <td>{{depense.date}}</td>
+                            <td><input type="checkbox" class="delete" id="delbox_{{depense.id}}"></td>
+                        </tr>
+                        {% endfor %}
+                    </table>
+                </center>
+                <div>
+                    <center>
+                        <a href="/"><button class="button1">Nouvel dépense</button></a>
+                        <button class="button1" onClick="todelete()" id="deletebn" disabled="true">Delete</button>
+                    </center>
+                </div>
             </section>
         </div>
     </div>
 </body>
+
+<script type="text/javascript" src="{{ url_for('budget_bp.static', filename='jquery.js') }}"></script>
+<SCRIPT language="JavaScript">
+
+    $(document).on("change", ".delete", function () {
+        $(".delete").each(function () {
+            if ($(this).is(":checked")) {
+                $("#deletebn").prop("disabled", false);
+                return false;
+            }
+            $("#deletebn").prop("disabled", true);
+        });
+
+    });
+
+    function todelete() {
+        var target = [];
+        $(".delete").each(function () {
+            if ($(this).is(":checked")) {
+                target.push($(this).attr('id').substring(7));
+            }
+        });
+
+        data = { "todelete": target }
+        fetch('/delete', {
+            method: "POST",
+            credentials: "include",
+            xhrFields: { withCredentials: true },
+            body: JSON.stringify(data),
+            cache: "no-cache",
+            headers: new Headers({
+                "content-type": "application/json"
+            })
+        })
+            .then(function (response) {
+                if (response['status'] !== 200) {
+                    alert("Problem to delete the values");
+                }
+                else {
+                    console.log("Entry deleted");
+                }
+            })
+    }
+</SCRIPT>
 
 </html>

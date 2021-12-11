@@ -42,11 +42,11 @@ def hello():
 
 @budget_bp.route("/seedb")
 def seedb():
-    depenses = Depense.query.all()
+    depenses = Transaction.query.all()
     deps = []
     for depense in depenses:
-        print("Amount = " + str(depense.amount) + " categorie = " + str(depense.categorie) + " Date = " + str(depense.date))
-        dep = {"id" : depense.id, "amount": depense.amount, "categorie": depense.categorie, "date": depense.date}
+        print("Amount = " + str(depense.amount) + " categorie = " + str(depense.category) + " Date = " + str(depense.date))
+        dep = {"id" : depense.id, "amount": depense.amount, "categorie": depense.category, "date": depense.date}
         deps.append(dep)
     print(deps)
     return render_template("seedb.html", depenses=deps)
@@ -57,7 +57,7 @@ def delete():
     to_delete = request.json
     print("A supprimer : ", to_delete)
     for index in to_delete['todelete']:
-        depense = Depense.query.filter_by(id = index).first()
+        depense = Transaction.query.filter_by(id = index).first()
         db.session.delete(depense)
         db.session.commit()
     return make_response("OK", 200)
@@ -67,7 +67,7 @@ def delete():
 def truc():
     print(request.form)
     valeur = request.form
-    newdep = Depense(valeur['montant'], valeur['categorie'], valeur['date'])
+    newdep = Transaction(valeur['montant'], valeur['categorie'], valeur['date'])
     db.session.add(newdep)
     db.session.commit()
     return redirect(url_for('budget_bp.seedb'))
@@ -75,4 +75,12 @@ def truc():
 
 @budget_bp.route("/budget")
 def budget():
-    return render_template("budget.html")
+    depenses = Transaction.query.all()
+    deps = []
+    for depense in depenses:
+        print("Amount = " + str(depense.amount) + " categorie = " +
+              str(depense.category) + " Date = " + str(depense.date))
+        dep = {"id": depense.id, "amount": depense.amount,
+               "categorie": depense.category, "date": depense.date}
+        deps.append(dep)
+    return render_template("budget.html", depenses=deps)

@@ -49,5 +49,9 @@ h2 {
 .categories {
   height: 80%;
   background-color: #655df4;
-  opacity: 20%;
+  opacity: 80%;
+}
+
+table, tr, th {
+  
 }
