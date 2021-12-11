@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+
+<title>Nouvel dépense</title>
+
+<head>
+ <script type="text/javascript" src="{{ url_for('static', filename='jquery.js') }}"></script>
+    <div>
+    <center>
+    <p style="font-size:2em">Tu As Besoin D'un Budget, l'ami</p>
+        <!-- <input type="text" id="categorie" placeholder="Type"></input> -->
+        <form action="/truc" method="POST" data-type="text" id="login-form">
+            <select name="categorie" id="categorie" class="categorie">
+                <option value="nourriture">Nourriture</option>
+                <option value="equipement">Equipement</option>
+                <option value="Habit">Habit</option>
+            </select>
+            <br>
+            <input type="text" id="montant" placeholder="Montant"></input>
+            <br>
+            <input type="text" id="date" placeholder="Date"></input>
+            <br>
+            <br>
+            <button type="submit" value="Submit">Submit</button>
+            <!-- <button onClick="hello()">Send</button> -->
+        </form>
+        <br>
+        <br>
+        <a href="/seedb"><button href="/seedb">See DB</button></a></br>
+        </center>
+    </div>
+
+
+</head>
+
+<SCRIPT language="JavaScript">
+
+
+function hello() {
+    var categorie = $(".categorie").val();
+    console.log(categorie);
+    var montant = $("#montant").val();
+    var date = $("#date").val();
+
+    data = {'categorie' : categorie, 'montant' : montant, 'date' : date};
+    console.log(data)
+
+    // So you just choose a url name here for where to post your data
+    fetch('/postdata', {
+        method: "POST",
+        credentials: "include",
+        xhrFields: { withCredentials: true },
+        body: JSON.stringify(data),
+        cache: "no-cache",
+        headers: new Headers({
+            "content-type": "application/json"
+        })
+    })
+}
+
+</SCRIPT>
+
+
+</html>
+
+
