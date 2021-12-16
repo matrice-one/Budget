@@ -22,16 +22,6 @@
 
     <nav>
         <li><a href="login.html" class="darker cd-popup-trigger">Login</a></li>
-        <div class="cd-popup" role="alert">
-            <div class="cd-popup-container">
-                <h4>Log in to your accont</h4>
-                <ul class="cd-buttons">
-                    <li><a href="#0">Yes</a></li>
-                    <li><a href="#0">No</a></li>
-                </ul>
-                <a href="#0" class="cd-popup-close img-replace">Close</a>
-            </div> <!-- cd-popup-container -->
-        </div>
 
         <li><a href="#">About</a></li>
         <li><a href="#">Blog</a></li>
@@ -40,6 +30,25 @@
   </header>
 
   <section class="hero">
+    <div class="cd-popup" role="alert">
+      <div class="cd-popup-container">
+        <div class="card">
+          <form">
+             <h2 class="title"> Log in</h2>
+             <p class="subtitle">Don't have an account? <a href="#"> sign Up</a></p>
+             <div class="email-login">
+                <label for="email"> <b>Email</b></label>
+                <input type="text" placeholder="Enter Email" name="uname" required>
+                <label for="psw"><b>Password</b></label>
+                <input type="password" placeholder="Enter Password" name="psw" required>
+             </div>
+             <button class="cta-btn">Log In</button>
+             <a class="forget-pass" href="#">Forgot password?</a>
+             <a href="#0" class="cd-popup-close img-replace"></a>
+          </form>
+       </div>
+      </div> <!-- cd-popup-container -->
+  </div>
     <div class="background-image" style="background-image: url(assets/img/main.jpg);"></div>
 
     <div class="hero-content-area">
