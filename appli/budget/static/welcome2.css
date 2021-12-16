@@ -1,0 +1,292 @@
+@import url("https://use.typekit.net/dcr0tfb.css");
+/* DEFINING THE FIRST GLOBAL FONT */
+
+html,
+body {
+  /* font-family: mr-eaves-xl-modern, sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  color: black; */
+  background-color: none;
+}
+
+main {
+  display: flex;
+  flex-flow: row wrap;
+  /* margin-left: 5%;
+  margin-right: 5%; */
+}
+
+section {
+  min-height: 80px;
+  min-width: 80px;
+}
+
+#spacing {
+  flex-basis: 100%;
+}
+
+#responsive_cols {
+  flex-basis: 100%;
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+  justify-content: space-around;
+  margin-left: 5%;
+  margin-right: 5%;
+}
+
+#responsive_cols-1 {
+  flex-basis: 50%;
+}
+
+#responsive_cols-2 {
+  flex-basis: 50%;
+}
+
+#block1 {
+  flex-basis: 100%;
+}
+
+#block2 {
+  flex-basis: 100%;
+}
+
+#block31 {
+  flex-basis: 33.333%;
+}
+
+#block32 {
+  flex-basis: 33.333%;
+}
+
+#block33 {
+  flex-basis: 33.333%;
+}
+
+#block4_space {
+  flex-basis: 100%;
+}
+#block4 {
+  flex-basis: 50%;
+}
+
+#block5 {
+  flex-basis: 50%;
+  /* background-color: rgba(21, 105, 179); */
+}
+
+.inblock5 {
+  align: left;
+  border-style: none;
+  border-radius: 40px;
+  background-color: rgb(57, 55, 77);
+  color: white;
+  font-size: 1em;
+  margin: auto;
+  padding: 4em 2em 5em 5em;
+  max-width: 500px;
+}
+
+.inblock5 p {
+  color: white;
+}
+
+#block5.h3 {
+  font-family: mr-eaves-modern, sans-serif;
+  font-weight: 800;
+  font-style: normal;
+  font-size: 1.8vw;
+}
+
+#block5.li {
+  font-size: 1vw;
+}
+
+#block6_titre {
+  flex-basis: 100%;
+}
+
+#block6_alternative {
+  flex-basis: 100%;
+}
+
+#block6 {
+  flex-basis: 100%;
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+  justify-content: space-around;
+  margin-left: 5%;
+  margin-right: 5%;
+  /* padding-bottom: 30vh; */
+}
+
+.container_service {
+  /* border-style: rgb(57, 55, 77); */
+  border-radius: 20px;
+  background-color: rgb(255, 101, 132);
+  color: white;
+  font-size: 1em;
+  margin: auto;
+  padding: 4em 2em;
+  max-width: 35vh;
+  min-height: 50vh;
+  align-items: center;
+  text-align: center;
+}
+
+#block61 {
+  flex-basis: 25%;
+  flex: 1 auto;
+  max-width: 40vh;
+  padding: 0 10px 10px 0;
+}
+
+#block62 {
+  flex-basis: 25%;
+  flex: 1 auto;
+  max-width: 40vh;
+  padding: 0 10px 10px 0;
+}
+
+#block63 {
+  flex-basis: 25%;
+  flex: 1 auto;
+  max-width: 40vh;
+  padding: 0 10px 10px 0;
+}
+
+#block64 {
+  flex-basis: 25%;
+  flex: 1 auto;
+  max-width: 40vh;
+  padding: 10px 10px 10px 10px;
+}
+
+#block7 {
+  flex-basis: 25%;
+}
+
+#block8 {
+  flex-basis: 25%;
+}
+
+#block9 {
+  flex-basis: 25%;
+}
+
+#block10_titre {
+  flex-basis: 100%;
+}
+
+#block10 {
+  flex-basis: 100%;
+  margin-left: 10%;
+  margin-right: 10%;
+}
+
+#block11 {
+  flex-basis: 100%;
+  margin-left: 10%;
+  margin-right: 10%;
+}
+
+#block11.li {
+}
+
+/* #block12 {
+  flex-basis: 100%;
+  margin-left: 10%;
+  margin-right: 10%;
+} */
+
+#block12 {
+  flex-basis: 100%;
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+  justify-content: space-around;
+  margin-left: 5%;
+  margin-right: 5%;
+}
+
+#block121 {
+  flex-basis: 33.3333%;
+  flex: 1 auto;
+  min-width: 20vh;
+  padding-left: 5vh;
+  padding-right: 5vh;
+}
+
+#block122 {
+  flex-basis: 33.3333%;
+  flex: 1 auto;
+  min-width: 20vh;
+  padding-left: 5vh;
+  padding-right: 5vh;
+}
+
+#block123 {
+  flex-basis: 33.3333%;
+  flex: 1 auto;
+  min-width: 20vh;
+  padding-left: 5vh;
+  padding-right: 5vh;
+}
+
+@media (max-width: 800px) {
+  #block1,
+  #block2 {
+    flex-basis: 100%;
+  }
+  #block31,
+  #block32 {
+    flex-basis: 50%;
+  }
+  #block33 {
+    flex-basis: 100%;
+  }
+
+  #block4,
+  #block5 {
+    flex-basis: 50%;
+  }
+  #block6,
+  #block7,
+  #block8,
+  #block9 {
+    flex-basis: 50%;
+  }
+  #block6,
+  #block10 {
+    flex-basis: 100%;
+  }
+
+  #block11,
+  #block12 {
+    flex-basis: 100%;
+  }
+}
+
+@media (max-width: 600px) {
+  #block1,
+  #block2,
+  #block31,
+  #block32,
+  #block33,
+  #block4,
+  #block5,
+  #block6,
+  #block7,
+  #block8,
+  #block9,
+  #block10,
+  #block11,
+  #block12 {
+    flex-basis: 100%;
+  }
+}
