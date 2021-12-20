@@ -14,7 +14,7 @@ jQuery(document).ready(function($){
 	});
 	//close popup when clicking the esc keyboard button
 	$(document).keyup(function(event){
-    	if(event.which=='27'){
+    	if(event.which=='img-replace27'){
     		$('.cd-popup').removeClass('is-visible');
 	    }
     });

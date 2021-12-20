@@ -266,7 +266,8 @@ footer p {
   color: black;
   opacity: 100%;
 }
--------- */ .cd-nugget-info {
+
+*/ .cd-nugget-info {
   text-align: center;
   position: absolute;
   width: 100%;
