@@ -14,6 +14,34 @@
 
 </head>
 <body>
+
+  <div class="cd-popup z-50 fixed bottom-0 inset-x-0 px-4 pb-4 sm:inset-0 sm:flex sm:items-center sm:justify-center" role="alert">
+    <div class="cd-popup-container">
+      <form method="POST" action="/login">
+           <h2 class="title"> Log in to your account</h2>
+           <br>
+
+           <div class="email-login">
+              <label class = "form_row" for="email"> <b>Email</b></label>
+              <br>
+              <input class= "form_row user-input" type="email" name="email" placeholder="Your Email" autofocus="">
+              <br>
+              <label for="psw"><b>Password</b></label>
+              <br>
+              <input class= "user-input" type="password" name="password" placeholder="Your Password">
+           </div>
+           <br>
+           <button  class="btn cta-btn">Log In</button>
+           <br>
+           <br>
+           <a class="forget-pass" href="#">Forgot password?</a>
+           <br>
+           <p class="subtitle">Don't have an account? <a href="#"> Sign Up</a></p>
+        
+     </div>
+    </div> <!-- cd-popup-container -->
+</div>
+
   <!-- Forked from a template on Tutorialzine: https://tutorialzine.com/2016/06/freebie-landing-page-template-with-flexbox -->
   <header>
 
@@ -25,30 +53,13 @@
 
         <li><a href="#">About</a></li>
         <li><a href="#">Blog</a></li>
-      </nav>
+    </nav>
+
+    
 
   </header>
 
   <section class="hero">
-    <div class="cd-popup" role="alert">
-      <div class="cd-popup-container">
-        <div class="card">
-          <form">
-             <h2 class="title"> Log in</h2>
-             <p class="subtitle">Don't have an account? <a href="#"> sign Up</a></p>
-             <div class="email-login">
-                <label for="email"> <b>Email</b></label>
-                <input type="text" placeholder="Enter Email" name="uname" required>
-                <label for="psw"><b>Password</b></label>
-                <input type="password" placeholder="Enter Password" name="psw" required>
-             </div>
-             <button class="cta-btn">Log In</button>
-             <a class="forget-pass" href="#">Forgot password?</a>
-             <a href="#0" class="cd-popup-close img-replace"></a>
-          </form>
-       </div>
-      </div> <!-- cd-popup-container -->
-  </div>
     <div class="background-image" style="background-image: url(assets/img/main.jpg);"></div>
 
     <div class="hero-content-area">
