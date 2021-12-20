@@ -68,6 +68,7 @@ def truc():
     print(request.form)
     valeur = request.form
     newdep = Transaction(valeur['montant'], valeur['categorie'], valeur['date'])
+    print("Dépense : ", valeur['categorie'])
     db.session.add(newdep)
     db.session.commit()
     return redirect(url_for('budget_bp.seedb'))
@@ -76,11 +77,12 @@ def truc():
 @budget_bp.route("/budget")
 def budget():
     depenses = Transaction.query.all()
-    deps = []
+    deps = {}
     for depense in depenses:
         print("Amount = " + str(depense.amount) + " categorie = " +
               str(depense.category) + " Date = " + str(depense.date))
-        dep = {"id": depense.id, "amount": depense.amount,
-               "categorie": depense.category, "date": depense.date}
-        deps.append(dep)
+        if depense.category not in deps:
+            deps[depense.category] = 0
+        deps[depense.category] += depense.amount
+    print(deps)        
     return render_template("budget.html", depenses=deps)

@@ -6,7 +6,7 @@ from appli import db
 # Puis les classes si on en fait
 
 
-class User(db.Model):
+class User(db.Model, UserMixin):
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(50), nullable=False)
     password = db.Column(db.String(50), nullable=False)
@@ -42,17 +42,18 @@ class List(db.Model):
 class Transaction(db.Model):
     __tablename__ = 'transaction'
     id = db.Column(db.Integer, primary_key=True)
-    amount = db.Column(db.Integer)
+    amount = db.Column(db.Integer, nullable=False)
     comment = db.Column(db.String(50))
     # category = user_id = db.Column(db.Integer, db.ForeignKey('list.category_id'),
     #                                nullable=False)
     date = db.Column(db.String(50))
-    category = db.Column(db.String(50))
+    category = db.Column(db.String(50), nullable=False)
 
-    def __init__(self, amount, date, comment=None):
+    def __init__(self, amount, category, date, comment=None):
         self.amount = amount
         self.date = date
         self.comment = comment
+        self.category = category
 
     def __repr__(self):
         return '<Transaction %r>' % self.id

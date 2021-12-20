@@ -27,26 +27,48 @@
             </nav>
         </div>
         <div class="content">
-            <header class=headercont> This is the header for the month</header>
+            <header class=headercont>
+                This is the header for the month
+            </header>
+            <div id="panel">
+                <form action="/addentry" method="POST" data-type="text" id="login-form">
+                    <select name="categorie" id="categorie" class="categorie">
+                        <option value="nourriture">Nourriture</option>
+                        <option value="equipement">Equipement</option>
+                        <option value="Habit">Habit</option>
+                    </select>
+                    <br>
+                    <input name="montant" type="text" id="montant" placeholder="Montant"></input>
+                    <br>
+                    <input name="date" type="text" id="date" placeholder="Date"></input>
+                    <br>
+                    <br>
+                    <button type="submit" value="Submit">Submit</button>
+                </form>
+            </div>
+            <div class='blue-cirle-div'>
+                <button id="b_newinput">+</button>
+            </div>
             <section class="categories">
-                <center>
-                    <table class="content">
-                        <tr>
-                            <th>Catégorie</th>
-                            <th>Montant</th>
-                            <th>Date</th>
-                        </tr>
-                        {% for depense in depenses %}
-                        <tr>
-                            <td>{{depense.categorie}}</td>
-                            <td>{{depense.amount}}</td>
-                            <td>{{depense.date}}</td>
-                            <td><input type="checkbox" class="delete" id="delbox_{{depense.id}}"></td>
-                        </tr>
-                        {% endfor %}
-                    </table>
-                </center>
-                <div>
+                <div id="affiche">
+                    <center>
+                        <table class="content">
+                            <tr> 
+                                <th>Catégorie</th>
+                                <th>Montant</th>
+                                <th>Date</th>
+                            </tr>
+                            {% for depense in depenses %}
+                            <tr>
+                                <td>{{depense.categorie}}</td>
+                                <td>{{depense.amount}}</td>
+                                <td>{{depense.date}}</td>
+                                <td><input type="checkbox" class="delete" id="delbox_{{depense.id}}"></td>
+                            </tr>
+                            {% endfor %}
+                        </table>
+                    </center>
+                </div><div>
                     <center>
                         <a href="/"><button class="button1">Nouvel dépense</button></a>
                         <button class="button1" onClick="todelete()" id="deletebn" disabled="true">Delete</button>
@@ -99,6 +121,13 @@
                 }
             })
     }
+
+    $(document).ready(function () {
+        $("#b_newinput").click(function () {
+            $("#panel").slideToggle();
+            $("#b_newinput").text($("#b_newinput").text() == 'Trooooooooooop' ? '+' : 'Trooooooooooop');
+        });
+    });
 </SCRIPT>
 
 </html>
