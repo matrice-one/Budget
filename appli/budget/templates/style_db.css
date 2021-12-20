@@ -198,6 +198,16 @@ td {
   padding: 20px 30px;
 }
 
+.action_button {
+  max-width: 25%;
+  opacity: 0.3;
+}
+
+.action_button.active {
+  max-width: 25%;
+  opacity: 0.8;
+}
+
 /*  */
 .app-container {
   width: 100%;
