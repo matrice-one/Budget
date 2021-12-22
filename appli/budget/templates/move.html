@@ -11,9 +11,10 @@
   <link rel="stylesheet" href="style_db.css">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@900&display=swap" rel="stylesheet">
-  <script src="script_db.js"></script>
-
-</head>
+  <script type="text/javascript" src="{{ url_for('budget_bp.static', filename='jquery.js') }}"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  
+  <script src="/Users/neigelinerivollat/Desktop/test/script_assign.js"></script>
 
 <body>
 
@@ -202,11 +203,21 @@
             </tbody>
           </table>
         </div>
+
+      <!-- Script to make side section appear and disappear -->
+      <script>        
+        $(document).ready(function(){
+          $('.move').click(function(){
+            $('.messages-section').toggleClass('hide');
+          });
+        });
+      </script>
+
         <div class="main-actions">
           <div class="container">
-            <img class = "action_button active" src="button_move.png" alt="move_money">
-            <img class = "action_button" src="button_spend.png" alt="spend_money">
-            <img class = "action_button" src="button_add.png" alt="move_money">
+            <img class = "action_button move active" src="button_move.png" alt="move_money">
+            <img class = "action_button spend" src="button_spend.png" alt="spend_money">
+            <img class = "action_button add" src="button_add.png" alt="add_money">
 
           </div>
         </div>

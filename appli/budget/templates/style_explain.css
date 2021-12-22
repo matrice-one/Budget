@@ -87,6 +87,7 @@ a {
   -ms-flex-direction: column;
   flex-direction: column;
   max-height: 5fr;
+  flex-direction: column;
 }
 
 .table-section {
@@ -565,14 +566,24 @@ td {
   color: var(--main-color);
 }
 
-.projects-section-header p {
-  text-align: center;
-  font-size: 24px;
-  line-height: 32px;
-  font-weight: 700;
-  opacity: 0.9;
-  margin: 0;
-  color: var(--main-color);
+.projects-section {
+  overflow: scroll;
+}
+
+.explanation-container {
+  max-width: 70%;
+}
+
+.illustration-container {
+  max-width: 30%;
+}
+
+.illustration-container img {
+  max-height: 30%;
+}
+
+.projects-section p {
+  font-size: 12px;
 }
 
 .projects-section-header .time {
@@ -689,10 +700,6 @@ td {
   background-color: transparent;
   color: var(--main-color);
   display: none;
-}
-
-.hide {
-  display: none !important;
 }
 
 .messages-section.show {

@@ -78,13 +78,13 @@ def load_user(user_id):
 
 
 # Template pour le login (merci Internet)
-@login_bp.route('/login')
+@login_bp.route('/welcome_login')
 def login():
-    return render_template('login.html')
+    return render_template('welcome_login.html')
 
 
 # Login page
-@login_bp.route('/login', methods=['POST'])
+@login_bp.route('/welcome_login', methods=['POST'])
 def login_post():
     email = request.form.get('email')
     password = request.form.get('password')
@@ -98,7 +98,7 @@ def login_post():
     if not user or not check_password_hash(user.password, password):
         flash('Please check your login details and try again.')
         # if the user doesn't exist or password is wrong, reload the page
-        return redirect(url_for('login_bp.login'))
+        return redirect(url_for('login_bp.welcome_login'))
 
     # if the above check passes, then we know
     # the user has the right credentials
@@ -133,4 +133,4 @@ def signup_post():
 
     fill_db(username, email, password)
 
-    return redirect(url_for('login_bp.login'))
+    return redirect(url_for('login_bp.welcome_login'))
