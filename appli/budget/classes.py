@@ -28,6 +28,8 @@ class User(db.Model):
         return '<User %r>' % self.name
 
 
+
+# What is this one for? 
 class List(db.Model):
     __tablename__ = 'list'
     id = db.Column(db.Integer, primary_key=True)
@@ -37,6 +39,23 @@ class List(db.Model):
 
     def __repr__(self):
         return '<List %r>' % self.category_id
+
+
+# Categories tables
+class Categories(db.Model):
+    __tablename__ = 'categories'
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String(120), nullable=False)
+    amount_assigned = db.Column(db.Integer)
+    amount_spent = db.Column(db.Integer)
+    amount_left = db.Column(db.Integer)
+
+
+
+    def __repr__(self):
+        return '<List %r>' % self.category_id
+
+
 
 
 class Transaction(db.Model):
